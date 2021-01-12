@@ -84,11 +84,13 @@
     const changeTask = (id) => {
         const index = listeTable.findIndex(value => value.id === id)
         const task = listeTable[index]
-        task.children[0].innerHTML = `<input value=${task}/>`
+        task.element.children[0].innerHTML = `<input value=${task.value}/><button onClick=${() => validateChange()}>confirmer</button>`
         listeTable.splice(index, 1)
         listeTable.push({...task, state: !task.state})
 
     }
+
+    const validateChange = ( ) => console.log("je suis modifer")
 
     const renderModal = () => {
         compteRendu.innerHTML = `<ul>${listeTable.map((value, index) => `<li><span>${value.value}</span> <span style="background-color: ${value.state ? "green" : "red"}">${value.state ? "fait" : "non"}</span></li>`)}</ul>`
