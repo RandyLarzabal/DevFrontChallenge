@@ -84,7 +84,7 @@
     const changeTask = (id) => {
         const index = listeTable.findIndex(value => value.id === id)
         const task = listeTable[index]
-        task.element.children[0].innerHTML = `<input value=${task.value}/><button onClick=${() => validateChange()}>confirmer</button>`
+        task.element.children[0].innerHTML = `<input value=${task.value}/><button onClick=${validateChange()}>confirmer</button>`
         listeTable.splice(index, 1)
         listeTable.push({...task, state: !task.state})
 
